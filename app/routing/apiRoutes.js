@@ -12,10 +12,10 @@ routeAPI.get('/api/friends', function(req, res) {
   res.json(friends);
 });
 
-routeAPI.post('/api/friends', function(res, req) {
+routeAPI.post('/api/friends', function(req, res) {
   var newFriend = req.body;
 
-  console.log(newFriend);
+  console.log('New Friends:', newFriend);
 
   friends.push(newFriend);
 
