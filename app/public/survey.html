@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>survey</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
@@ -20,104 +20,159 @@
 
       <h2>About you</h2>
       <h3>You name here (required)</h3>
-      <input class="form-control form-control-lg" type="text" id="name" placeholder="">
+      <input class="form-control form-control-lg" type="text" id="user-name" placeholder="">
       <h3>Link to photo (required)</h3>
       <input class="form-control form-control-lg" type="text" id="photo-url" placeholder="">
       <hr>
 
       <h2>Questions</h2>
       <h3>Question 1</h3>
-      <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+      <select class="form-control" id="q-01">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2 (disagree)</option>
+        <option value="3">3 (indifferent)</option>
+        <option value="4">4 (agree)</option>
+        <option value="5">5 (strongly agree)</option>
       </select>
 
       <h3>Question 2</h3>
-      <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+      <select class="form-control" id="q-02">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2 (disagree)</option>
+        <option value="3">3 (indifferent)</option>
+        <option value="4">4 (agree)</option>
+        <option value="5">5 (strongly agree)</option>
       </select>
 
       <h3>Question 3</h3>
-      <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+      <select class="form-control" id="q-03">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2 (disagree)</option>
+        <option value="3">3 (indifferent)</option>
+        <option value="4">4 (agree)</option>
+        <option value="5">5 (strongly agree)</option>
       </select>
 
       <h3>Question 4</h3>
-      <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+      <select class="form-control" id="q-04">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2 (disagree)</option>
+        <option value="3">3 (indifferent)</option>
+        <option value="4">4 (agree)</option>
+        <option value="5">5 (strongly agree)</option>
       </select>
 
       <h3>Question 5</h3>
-      <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+      <select class="form-control" id="q-05">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2 (disagree)</option>
+        <option value="3">3 (indifferent)</option>
+        <option value="4">4 (agree)</option>
+        <option value="5">5 (strongly agree)</option>
       </select>
 
       <h3>Question 6</h3>
-      <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+      <select class="form-control" id="q-06">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2 (disagree)</option>
+        <option value="3">3 (indifferent)</option>
+        <option value="4">4 (agree)</option>
+        <option value="5">5 (strongly agree)</option>
       </select>
 
       <h3>Question 7</h3>
-      <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+      <select class="form-control" id="q-07">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2 (disagree)</option>
+        <option value="3">3 (indifferent)</option>
+        <option value="4">4 (agree)</option>
+        <option value="5">5 (strongly agree)</option>
       </select>
 
       <h3>Question 8</h3>
-      <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+      <select class="form-control" id="q-08">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2 (disagree)</option>
+        <option value="3">3 (indifferent)</option>
+        <option value="4">4 (agree)</option>
+        <option value="5">5 (strongly agree)</option>
       </select>
 
       <h3>Question 9</h3>
-      <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+      <select class="form-control" id="q-09">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2 (disagree)</option>
+        <option value="3">3 (indifferent)</option>
+        <option value="4">4 (agree)</option>
+        <option value="5">5 (strongly agree)</option>
       </select>
 
       <h3>Question 10</h3>
-      <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+      <select class="form-control" id="q-10">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2 (disagree)</option>
+        <option value="3">3 (indifferent)</option>
+        <option value="4">4 (agree)</option>
+        <option value="5">5 (strongly agree)</option>
       </select>
+
+      <hr>
+
+      <div class="row">
+
+        <div class="col-3">
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" id="submit" role="button">Submit</a>
+          </p>
+        </div>
+
+        <div class="col-3">
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="./" role="button">Home</a>
+          </p>
+        </div>
+
+      </div>
     </div>
 
     <div class="col-1"></div>
 </body>
+
+<script type="text/javascript">
+  $('#submit').on('click', function(event) {
+    event.preventDefault();
+
+    var questArr = [
+      $('#q-01').val().trim(),
+      $('#q-02').val().trim(),
+      $('#q-03').val().trim(),
+      $('#q-04').val().trim(),
+      $('#q-05').val().trim(),
+      $('#q-06').val().trim(),
+      $('#q-07').val().trim(),
+      $('#q-08').val().trim(),
+      $('#q-09').val().trim(),
+      $('#q-10').val().trim()
+    ];
+
+    var newFriend = {
+      name: $('#user-name').val().trim(),
+      photo: $('#photo-url').val().trim(),
+      scores: questArr
+    }
+    console.log(newFriend);
+
+    $.post('../api/friends', newFriend, function(data) {
+      if (data) {
+        // model of mathc
+      } else {
+        // model of sorry no match.
+      }
+
+      $('#user-name').val('');
+      $('#photo-url').val('');
+    });
+  });
+</script>
 
 </html>
