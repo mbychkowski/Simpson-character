@@ -160,20 +160,33 @@
       photo: $('#photo-url').val().trim(),
       scores: questArr
     }
-    console.log(newFriend);
 
     $.post('../api/friends', newFriend, function(data) {
       if (data) {
-        // model of mathc
+        // modal of math
       } else {
-        // model of sorry no match.
+        // modal of sorry no match.
       }
 
       $('#user-name').val('');
       $('#photo-url').val('');
       $('select').each(function() {this.selectedIndex = 0});
+      matchingAlgorithm(data);
     });
   });
+
+  function matchingAlgorithm(userScores) {
+    var currentURL = window.location.origin;
+    console.log('URL', currentURL); //temp
+    console.log('user score: ',userScores);
+
+    $.ajax({
+      url: currentURL + "/api/friends",
+      method: "GET"
+    }).done(function(data) {
+      console.log('Friends data: ', data); //temp
+    });
+  }
 </script>
 
 </html>
