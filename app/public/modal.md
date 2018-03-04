@@ -14,7 +14,7 @@ Put the below code at the body of the html before closing `</body>`
   <img class="modal-content" id="modal-img">
 </div>
 ```
-Put the below code in the `<script>` just after the closing `</body>`
+Put the below code in the `<script>` just after the closing `</body>`. You can use this function where you see fit. I used it after the submit event.
 ```
 function friendModal(imgURL, name) {
 
