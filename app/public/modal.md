@@ -1,7 +1,7 @@
 # Modal
 ## server.js
 This is for adding the style.css. 
-`app.use(express.static(__dirname + '/app/public'));`
+```app.use(express.static(__dirname + '/app/public'));```
 ## survey.html
 Put the below code at the body of the html before closing `</body>`
 ```
