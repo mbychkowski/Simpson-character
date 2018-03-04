@@ -27,6 +27,8 @@
       <hr>
 
       <h2>Questions</h2>
+      <br>
+
       <h3>Question 1</h3>
       <h4>You don't know where Springfield is, but know it is the best town.</h4>
       <select class="form-control" id="q-01">
@@ -36,6 +38,7 @@
         <option value="4">4 (agree)</option>
         <option value="5">5 (strongly agree)</option>
       </select>
+      <br>
 
       <h3>Question 2</h3>
       <h4>Nothing beats a can of Duff Beer, Oh Yeah!</h4>
@@ -46,6 +49,7 @@
         <option value="4">4 (agree)</option>
         <option value="5">5 (strongly agree)</option>
       </select>
+      <br>
 
       <h3>Question 3</h3>
       <h4>Shelbyville is the worst.</h4>
@@ -56,6 +60,7 @@
         <option value="4">4 (agree)</option>
         <option value="5">5 (strongly agree)</option>
       </select>
+      <br>
 
       <h3>Question 4</h3>
       <h4>A dozen donuts is just the right amount of donuts for one person.</h4>
@@ -66,6 +71,7 @@
         <option value="4">4 (agree)</option>
         <option value="5">5 (strongly agree)</option>
       </select>
+      <br>
 
       <h3>Question 5</h3>
       <h4>Hard work ethic is the most important trait in a friend.</h4>
@@ -76,6 +82,7 @@
         <option value="4">4 (agree)</option>
         <option value="5">5 (strongly agree)</option>
       </select>
+      <br>
 
       <h3>Question 6</h3>
       <h4>Everyone should learn to play an instrument.</h4>
@@ -86,9 +93,10 @@
         <option value="4">4 (agree)</option>
         <option value="5">5 (strongly agree)</option>
       </select>
+      <br>
 
       <h3>Question 7</h3>
-      <h4>When it comes to going to school or skipping school, I will skip school.</h4>
+      <h4>When it comes to going to school or skipping school, you will skip school.</h4>
       <select class="form-control" id="q-07">
         <option value="1">1 (strongly disagree)</option>
         <option value="2">2 (disagree)</option>
@@ -96,9 +104,10 @@
         <option value="4">4 (agree)</option>
         <option value="5">5 (strongly agree)</option>
       </select>
+      <br>
 
       <h3>Question 8</h3>
-      <h4>Glue is a delecious snack.</h4>
+      <h4>Glue is a delicious snack.</h4>
       <select class="form-control" id="q-08">
         <option value="1">1 (strongly disagree)</option>
         <option value="2">2 (disagree)</option>
@@ -106,6 +115,7 @@
         <option value="4">4 (agree)</option>
         <option value="5">5 (strongly agree)</option>
       </select>
+      <br>
 
       <h3>Question 9</h3>
       <h4>You choose to be uncharastically nice, even to your lazy ungrateful neighbor.</h4>
@@ -116,6 +126,7 @@
         <option value="4">4 (agree)</option>
         <option value="5">5 (strongly agree)</option>
       </select>
+      <br>
 
       <h3>Question 10</h3>
       <h4>You will always listen to your mother even at age 40.</h4>
@@ -126,6 +137,7 @@
         <option value="4">4 (agree)</option>
         <option value="5">5 (strongly agree)</option>
       </select>
+      <br>
 
       <hr>
 
@@ -160,8 +172,13 @@
   var currentURL = window.location.origin;
 
   $('#submit').on('click', function(event) {
-    $('body').scrollTop(0);
     event.preventDefault();
+
+    if ($('input').val().trim() == '') {
+      alert('Please fill all the fields');
+
+      return false;
+    };
 
     var questArr = [
       $('#q-01').val().trim(),
