@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <title>survey</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+  </script>
 </head>
 
 <body>
@@ -139,6 +140,8 @@
 </body>
 
 <script type="text/javascript">
+  var currentURL = window.location.origin;
+
   $('#submit').on('click', function(event) {
     event.preventDefault();
 
@@ -161,32 +164,56 @@
       scores: questArr
     }
 
-    $.post('../api/friends', newFriend, function(data) {
-      if (data) {
-        // modal of math
-      } else {
-        // modal of sorry no match.
-      }
+    $.ajax({
+      traditional: true,
+      url: currentURL + "/api/friends",
+      data: newFriend,
+      method: "POST"
+    }).done(function(data) {
 
       $('#user-name').val('');
       $('#photo-url').val('');
-      $('select').each(function() {this.selectedIndex = 0});
+      $('select').each(function() {
+        this.selectedIndex = 0
+      });
+
       matchingAlgorithm(data);
     });
+
+    function matchingAlgorithm(userData) {
+      $.ajax({
+        url: currentURL + "/api/friends",
+        method: "GET"
+      }).done(function(data) {
+
+        var friendRatings = [];
+        var minIndex;
+
+        // 'data.length - 1' to avoid self-count.
+        for (var i = 0; i < data.length - 1; i++) {
+          var userScore = userData.scores;
+          var friendScore = data[i].scores;
+          friendRatings[i] = 0;
+
+          // go through each question and find difference
+          for (var j = 0; j < 10; j++) {
+            friendRatings[i] +=
+              Math.abs((parseInt(userScore[j]) - parseInt(friendScore[j])));
+          }
+
+          // Lowest score is best score = friend
+          if (i > 0) {
+            if (friendRatings[i - 1] < friendRatings[i]) {
+              minIndex = i - 1;
+            } else {
+              minIndex = i;
+            }
+          }
+        }
+      });
+    }
+
   });
-
-  function matchingAlgorithm(userScores) {
-    var currentURL = window.location.origin;
-    console.log('URL', currentURL); //temp
-    console.log('user score: ',userScores);
-
-    $.ajax({
-      url: currentURL + "/api/friends",
-      method: "GET"
-    }).done(function(data) {
-      console.log('Friends data: ', data); //temp
-    });
-  }
 </script>
 
 </html>
