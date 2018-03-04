@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <title>survey</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
-  </script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -137,12 +137,20 @@
     </div>
 
     <div class="col-1"></div>
+
+    <!-- The Modal -->
+    <div id="my-modal">
+      <h3 id="friend-name"></h3>
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modal-img">
+    </div>
 </body>
 
 <script type="text/javascript">
   var currentURL = window.location.origin;
 
   $('#submit').on('click', function(event) {
+    $('body').scrollTop(0);
     event.preventDefault();
 
     var questArr = [
@@ -166,9 +174,9 @@
 
     $.ajax({
       traditional: true,
-      url: currentURL + "/api/friends",
+      url: currentURL + '/api/friends',
       data: newFriend,
-      method: "POST"
+      method: 'POST'
     }).done(function(data) {
 
       $('#user-name').val('');
@@ -182,8 +190,8 @@
 
     function matchingAlgorithm(userData) {
       $.ajax({
-        url: currentURL + "/api/friends",
-        method: "GET"
+        url: currentURL + '/api/friends',
+        method: 'GET'
       }).done(function(data) {
 
         var friendRatings = [];
@@ -210,6 +218,22 @@
             }
           }
         }
+        friendModal(data[minIndex].photo, data[minIndex].name);
+      });
+    }
+
+    function friendModal(imgURL, name) {
+
+      $('#friend-name').text('Meet your new friend, ' + name);
+
+      // start modal
+      $('#my-modal').addClass('modal');
+      $('#modal-img').attr('src', imgURL);
+
+      // close modal
+      $('.close').on('click', function() {
+        $('#my-modal').removeClass('modal');
+        $('#modal-img').attr('src', '');
       });
     }
 
