@@ -1,7 +1,6 @@
-# Friend finder (express app)
-Friend finder helps you find your next best friend! This app is based on a matchmaking algorithm using Express.js to handle routing.
+# [Friend finder](https://simpson-finder.herokuapp.com/) (express app)
+Friend finder helps you find your next best friend! This app is based on a matchmaking algorithm using Express.js to handle routing. Who knows, maybe your next best friend could be Homer Simpson.
 
-[Application](https://hidden-hollows-91221.herokuapp.com/)
 ## How to use
 The user answers a series of 10 questions to match them with the most compatible friend. Below is the matchmaking algorithm:
 ```
